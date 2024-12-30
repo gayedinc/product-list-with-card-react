@@ -30,6 +30,8 @@
 }
 
 .dessert-image-selected {
+  margin-inline: auto;
+  width: 100%;
   border: 2px solid #C73B0F;
   border-radius: 8px;
 }
