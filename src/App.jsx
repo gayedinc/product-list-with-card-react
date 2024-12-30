@@ -53,7 +53,7 @@ function App() {
     const newTotal = updatedCart.reduce(
       (sum, item) => sum + item.price * item.quantity, 0
     );
-    setTotalPrice(newTotal);
+    setTotalPrice(newTotal.toFixed(2));
   }
 
   function handleDelete(dessertName) {
