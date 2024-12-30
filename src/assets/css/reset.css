@@ -14,6 +14,7 @@ body {
   /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
   font-family: Red Hat Text;
+  background-color: #FCF8F6;
 }
 
 /* 5. Improve media defaults */
