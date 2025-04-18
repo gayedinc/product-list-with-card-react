@@ -1,27 +1,77 @@
 # 🍰 Product List with Card - React
 
-Bu projeyi daha önce vanilla JavaScript kullanarak geliştirmiştim ancak React ile geliştirerek daha modüler, dinamik ve kullanıcı dostu bir hale getirdim. Kullanıcıların ürünleri sepete eklemesini, miktarlarını değiştirmesini ve toplam tutarı görüntülemesini sağlayan dinamik bir sipariş sepeti uygulaması oluşturdum. Aşağıda projede kullandığım bazı önemli teknikleri ve özellikleri bulabilirsiniz:
+> Tatlı ürünlerini sepete ekle, miktarını artır/azalt, siparişini onayla. Mobil uyumlu ve kullanıcı dostu bir sipariş sepeti uygulaması.
 
-## Kullanılan Teknikler ve Özellikler
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3)
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5)
 
-- **Sepete Ürün Ekleme ve Miktar Artırma:**  
-  Kullanıcılar sepetlerine ürün eklerken aynı üründen birden fazla eklemek istediklerinde miktar otomatik olarak artırılıyor. Bu sayede kullanıcıların her defasında yeni bir ürün eklemelerine gerek kalmıyor işlem daha hızlı ve verimli hale geliyor.
+## 🔍 Proje Özeti
 
-- **Toplam Sayı ve Tutarın Hesaplanması:**  
-  Sepetteki tüm ürünlerin sayısı ve toplam tutarları dinamik olarak hesaplanıyor ve anlık olarak güncelleniyor. Kullanıcılar sepetlerine ekledikleri her ürünü görsel olarak ve sayısal olarak takip edebiliyor.
+Bu projeyi daha önce Vanilla JavaScript ile geliştirmiştim ancak bu sürümde React kullanarak uygulamayı daha **modüler**, **dinamik** ve **kullanıcı odaklı** hale getirdim.  
+Kullanıcılar tatlı ürünlerini sepetlerine ekleyebilir, miktarlarını ayarlayabilir ve siparişlerini onaylayarak yeni siparişler başlatabilir.
 
-- **Ürün Ekleme ve Silme İşlemleri:**  
-  Sepete ürün ekleme veya çıkarma işlemleri kullanıcı etkileşimlerine dayalı olarak gerçek zamanlı bir şekilde güncelleniyor. Ürünler arasındaki değişiklikler sepetin içeriğine yansıyor.
+![image](https://github.com/user-attachments/assets/a582c5be-0c96-48a4-8d94-c3e8f92c3016)
 
-- **Confirm Order ve Yeni Sipariş Başlatma:**  
-  Sipariş onaylandıktan sonra bir modal penceresi açılır ve kullanıcılar "Start New Order" butonuna tıklayarak sepeti sıfırlayıp yeni bir sipariş sürecine başlayabilir. Bu özellik kullanıcıların kolayca yeni siparişlere geçmelerini sağlar.
+## 🧩 Uygulama Özellikleri
 
-- **Mobil Öncelikli Responsive Tasarım:**  
-  Projeyi mobil öncelikli bir tasarım yaklaşımıyla geliştirdim. Hem masaüstü hem de mobil cihazlarda kullanıcı dostu bir deneyim sunacak şekilde optimize ettim.
+### 🛒 Sepete Ürün Ekleme & Miktar Yönetimi
+- Aynı ürün tekrar eklendiğinde miktar artırılır.
+- Miktar sıfıra düşerse ürün otomatik olarak sepetten kaldırılır.
 
-- **Görsel Optimizasyonu:**  
-  Projede kullanılan tüm görsellerin boyutlarını küçülterek optimize ettim. Bu sayede sayfa yüklenme hızını artırdım ve performansı iyileştirdim.
+### 💵 Toplam Fiyat ve Ürün Sayısı
+- Sepetteki tüm ürünlerin fiyatları **otomatik olarak hesaplanır**.
+- Toplam tutar ve ürün sayısı gerçek zamanlı olarak güncellenir.
 
-## Hedefler
+![image](https://github.com/user-attachments/assets/367764be-9014-4f33-93c4-5dd5beee2a76)
 
-Bu projede React'in temel özelliklerini kullanarak dinamik, hızlı ve kullanıcı dostu bir alışveriş deneyimi sunmayı, sepet işlemleri ve sipariş takibi gibi özellikleri kolay ve verimli hale getirmeyi hedefledim.
+### ♻️ Ürün Silme & Clear All
+- Tek tek ürün çıkarabilir veya “Clear All” butonuyla sepeti tamamen temizleyebilirsiniz.
+- Temizleme işlemiyle birlikte sepet sıfırlanır, kullanıcı bilgilendirilir.
+
+### ✅ Sipariş Onayı & Yeni Sipariş
+- Sipariş onaylandığında modal pencere görünür:  
+  “Order Confirmed – We hope you enjoy your food!”  
+- “Start New Order” butonuyla sepet sıfırlanır, yeni sipariş başlatılır.
+
+![image](https://github.com/user-attachments/assets/2918479a-1f21-4aa6-95b6-de0cd28b000e)
+
+## 🖼️ Tasarım ve Deneyim
+
+- **Mobil öncelikli (mobile-first)** yaklaşımla geliştirildi.
+- Hem mobil hem masaüstünde kusursuz görünüm.
+- Hover animasyonları, modal geçişleri ve harf harf açılan başlık animasyonu ile kullanıcı deneyimi artırıldı.
+
+## 🌐 Canlı Demo
+Uygulamayı canlı olarak görüntülemek için:
+
+🔗 https://product-list-with-card.vercel.app
+
+## 🧠 Öğrendiklerim
+- React’te state yönetimi (useState)
+- Props ile component iletişimi
+- Liste üzerinden map ile dinamik render
+- CSS animasyonlar (fade-in, scale-in-out, underline hover vs.)
+- React içinde modal, toast, ve responsive layout uygulamaları
+
+## ⚙️ Proje Yapısı
+
+```bash
+📦 public
+ ┗ 📂 img                   # Projede kullanılan tüm görseller
+
+📦 src
+ ┣ 📂 assets
+ ┃ ┗ 📂 css
+ ┃   ┣ 📄 main.css          # Uygulama genel stil dosyası
+ ┃   ┗ 📄 reset.css         # Varsayılan tarayıcı stillerini sıfırlayan dosya
+ ┣ 📂 components
+ ┃ ┣ 📄 Basket.jsx          # Sepet bileşeni
+ ┃ ┣ 📄 ModalPage.jsx       # Sipariş onay modalı
+ ┃ ┗ 📄 Products.jsx        # Ürünlerin listelendiği bileşen
+ ┣ 📂 data
+ ┃ ┗ 📄 product.jsx         # Ürün verilerinin tutulduğu dosya
+ ┣ 📄 App.jsx               # Ana uygulama bileşeni
+ ┣ 📄 main.jsx              # React uygulamasının giriş noktası
+┗ 📄 index.html             # Uygulama HTML şablonu
