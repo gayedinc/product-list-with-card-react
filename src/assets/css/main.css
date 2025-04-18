@@ -11,29 +11,53 @@
   margin-bottom: 32px;
 }
 
-.header h2 {
+.header-title {
+  display: inline-block;
   font-size: 40px;
   font-weight: 700;
   line-height: 48px;
   color: #260F08;
   margin-bottom: 32px;
+
+  &:hover {
+    color: #C73B0F;
+  }
+}
+
+.header-title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(25px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .productsItem {
   position: relative;
 }
 
-.dessert-image {
-  margin-inline: auto;
-  width: 100%;
-  border: 2px solid transparent;
-}
-
+.dessert-image,
 .dessert-image-selected {
   margin-inline: auto;
   width: 100%;
+  border: 2px solid transparent;
+  transition: transform 0.3s ease;
+}
+
+.dessert-image-selected {
   border: 2px solid #C73B0F;
   border-radius: 8px;
+}
+
+.dessert-image:hover,
+.dessert-image-selected:hover {
+  transform: scale(1.05);
 }
 
 .add-btn {
@@ -86,32 +110,47 @@
   background-color: #fff;
   padding: 24px;
   border-radius: 12px;
-}
+  position: sticky;
+  top: 20px;
+  z-index: 10;
 
-.order-cart-full h3 {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 31.75px;
-  color: #C73B0F;
-  margin-bottom: 24px;
+  h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 31.75px;
+    color: #C73B0F;
+    margin-bottom: 24px;
+  }
+
+  h5 {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18.52px;
+    margin-bottom: 8px;
+    color: #260F08;
+  }
+
+  h5:hover {
+    color: #C73B0F;
+  }
 }
 
 .orderList {
   padding: 0;
   max-height: 336px;
   overflow-y: auto;
-}
 
-.orderList li {
-  list-style: none;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 18.52px;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #F5EEEC;
-  padding-bottom: 16px;
-  margin-bottom: 16px;
+  li {
+    list-style: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18.52px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #F5EEEC;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
 }
 
 .deleteBtn {
@@ -119,22 +158,14 @@
   cursor: pointer;
 }
 
-.order-cart-full h5 {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 18.52px;
-  margin-bottom: 8px;
-  color: #260F08;
-}
-
 .dessert-info {
   display: flex;
   gap: 8px;
-}
 
-.dessert-info p {
-  color: #C73B0F;
-  font-weight: 600;
+  p {
+    color: #C73B0F;
+    font-weight: 600;
+  }
 }
 
 .originalPrice {
@@ -147,25 +178,41 @@
   justify-content: space-between;
   align-items: center;
   color: #260F08;
+
+  h4 {
+    font-weight: 400;
+    line-height: 18.52px;
+    font-size: 14px;
+  }
+
+  p {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 31.75px;
+  }
 }
 
-.order-total-price h4 {
-  font-weight: 400;
-  line-height: 18.52px;
-  font-size: 14px;
-}
+.clear-all {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
 
-.order-total-price p {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 31.75px;
+  button {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18.52px;
+    color: #87635A;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
 
 .modalPerPrice {
   font-size: 16px;
   font-weight: 600;
   line-height: 21.17px;
-
 }
 
 .carbon-info-box {
@@ -177,17 +224,17 @@
   margin-inline: auto;
   justify-content: center;
   margin-block: 24px;
-}
 
-.carbon-info-box p {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18.52px;
-  color: #260F08;
-}
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18.52px;
+    color: #260F08;
+  }
 
-.carbon-info-box span {
-  font-weight: 600;
+  span {
+    font-weight: 600;
+  }
 }
 
 .confirmBtn, .newOrderBtn {
@@ -202,41 +249,43 @@
   line-height: 21.17px;
   font-size: 16px;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .confirmBtn:hover, .newOrderBtn:hover {
   background-color: #952c0b;
+  transform: scale(1.03);
 }
 
 .order-card-empty {
   display: block;
-}
-
-.order-card-empty {
   background-color: #fff;
   border-radius: 12px;
   padding: 24px;
-}
+  position: sticky;
+  top: 20px;
+  z-index: 10;
 
-.order-card-empty h3 {
-  font-weight: 700;
-  line-height: 31.75px;
-  font-size: 24px;
-  color: #C73B0F;
-  margin-bottom: 24px;
-}
+  h3 {
+    font-weight: 700;
+    line-height: 31.75px;
+    font-size: 24px;
+    color: #C73B0F;
+    margin-bottom: 24px;
+  }
 
-.order-card-empty img {
-  margin-inline: auto;
-}
+  img {
+    margin-inline: auto;
+  }
 
-.order-card-empty p {
-  font-weight: 600;
-  line-height: 18.52px;
-  font-size: 14px;
-  color: #87635A;
-  margin-top: 16px;
-  text-align: center;
+  p {
+    font-weight: 600;
+    line-height: 18.52px;
+    font-size: 14px;
+    color: #87635A;
+    margin-top: 16px;
+    text-align: center;
+  }
 }
 
 .plus-minus {
@@ -249,17 +298,17 @@
   position: absolute;
   bottom: 82px;
   left: 80px;
-}
 
-.plus-minus img {
-  cursor: pointer;
-}
+  img {
+    cursor: pointer;
+  }
 
-.plus-minus span {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 18.52px;
-  color: #fff;
+  span {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18.52px;
+    color: #fff;
+  }
 }
 
 .modal-dessert-list {
@@ -268,7 +317,7 @@
   padding: 0;
 }
 
-/* Scrollbar'ın tamamı */
+/* Scrollbar*/
 .orderList::-webkit-scrollbar, 
 .modal-dessert-list::-webkit-scrollbar {
   width: 8px;
@@ -307,6 +356,17 @@
   z-index: 1000;
 }
 
+@keyframes modalScaleIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .modal-content {
   background: #fff;
   padding: 20px;
@@ -314,33 +374,36 @@
   width: 90%;
   max-width: 500px;
   text-align: center;
+  animation: modalScaleIn 0.3s ease-out;
+  transform-origin: center;
 }
+
 
 .modal-header {
   text-align: left;
   margin-bottom: 32px;
+
+  h2 {
+    margin-top: 24px;
+    margin-bottom: 8px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    color: #260F08;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.17px;
+    color: #87635A;
+  }
 }
 
 .modal-info {
   background-color: #FCF8F6;
   padding: 24px;
   margin-bottom: 32px;
-}
-
-.modal-header h2 {
-  margin-top: 24px;
-  margin-bottom: 8px;
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 48px;
-  color: #260F08;
-}
-
-.modal-header p {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 21.17px;
-  color: #87635A;
 }
 
 .modal-li {
@@ -361,6 +424,18 @@
 .modal-dessert-cart {
   display: flex;
   gap: 16px;
+
+  h5 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    color: #260F08;
+    margin-bottom: 8px;
+  }
+
+  h5:hover {
+    color: #C73B0F;
+  }
 }
 
 /* Tablet Start */

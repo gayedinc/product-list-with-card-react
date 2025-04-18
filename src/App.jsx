@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { product } from "./assets/data/product.jsx";
+import Basket from "./components/Basket";
+import ModalPage from "./components/ModalPage";
+import Products from "./components/Products";
 
 function App() {
   const [showBasket, setShowBasket] = useState(false); // Sepet bölümünü kontrol eden state
@@ -12,10 +14,19 @@ function App() {
   }
 
   function handleCloseModal() {
-    setIsModalOpen(false); // Modalı kapat
+    setIsModalOpen(false); // Sadece modalı kapat
+  }
+
+  function handleNewOrder() {
     setCart([]); // Sepeti sıfırla
     setTotalPrice(0); // Toplam fiyatı sıfırla
-    setShowBasket(false); // Ana sayfaya dön
+    setShowBasket(false); // Sepeti gizle / ana sayfaya dön
+    setIsModalOpen(false); // Modalı kapat
+  }
+
+  function handleClearAll() {
+    setCart([]); // Sepeti boşalt
+    setTotalPrice(0); // Toplam fiyatı sıfırla
   }
 
   function increaseDessert(dessertName) {
@@ -81,7 +92,8 @@ function App() {
               onDeleteClick={handleDelete}
               onOpenModal={handleOpenModal}
               increaseDessert={increaseDessert}
-              decreaseDessert={decreaseDessert} />
+              decreaseDessert={decreaseDessert}
+              handleClearAll={handleClearAll} />
           </div>
         </>
       ) : (
@@ -101,7 +113,8 @@ function App() {
         <ModalPage
           cart={cart}
           totalPrice={totalPrice}
-          onCloseModal={handleCloseModal} />
+          onCloseModal={handleCloseModal}
+          handleNewOrder={handleNewOrder} />
       )}
     </div>
   );
@@ -110,66 +123,17 @@ function App() {
 function Header() {
   return (
     <div className="header">
-      <h2>Desserts</h2>
+      <h2 className="header-title">
+        {"Desserts".split("").map((char, i) => (
+          <span key={i} style={{ animationDelay: `${i * 0.1}s` }}>
+            {char}
+          </span>
+        ))}
+      </h2>
+
     </div>
   );
 }
-
-function Products({ onDessertClick, increaseDessert, decreaseDessert, cart }) {
-  const productItems = product.map(x => (
-    <Desserts
-      key={x.name}
-      label={x.name}
-      category={x.category}
-      price={x.price}
-      img={x.img}
-      onDessertClick={() => onDessertClick(x)}
-      increaseDessert={() => increaseDessert(x.name)}
-      decreaseDessert={() => decreaseDessert(x.name)}
-      cart={cart}
-    />
-
-  ));
-
-  return (
-    <div className="products">
-      <div className="product-list">{productItems}</div>
-    </div>
-  );
-}
-
-function Desserts({ cart = [], label, category, price, img, onDessertClick, increaseDessert, decreaseDessert }) {
-
-  const cartItem = cart.find(item => item.name === label); // cart içindeki ilgili öğeyi bul
-
-  return (
-    <div className="productsItem">
-      <div className="card-inner">
-        <img className={cartItem ? "dessert-image-selected" : "dessert-image"} src={img} alt={label} />
-        <div className={cartItem ? "plus-minus" : "add-btn"}>
-          {cartItem ? (
-            <>
-              <img onClick={decreaseDessert} src="/img/minus-icon.svg" alt="Minus Icon" />
-              <span>{cartItem.quantity}</span>
-              <img onClick={increaseDessert} src="/img/plus-icon.svg" alt="Plus Icon" />
-            </>
-          ) : (
-            <>
-              <img onClick={onDessertClick} src="/img/shopping-cart-plus.svg" alt="Shopping Cart Plus Icon" />
-              <p onClick={onDessertClick}>Add to Cart</p>
-            </>
-          )}
-        </div>
-      </div>
-      <div className="card-text">
-        <h3>{category}</h3>
-        <h4>{label}</h4>
-        <p>${price.toFixed(2)}</p>
-      </div>
-    </div>
-  );
-}
-
 
 function MyCard() {
   return (
@@ -179,87 +143,6 @@ function MyCard() {
       <p>Your added items will appear here</p>
     </div>
   );
-}
-
-function Basket({ cart, totalPrice, onDeleteClick, onOpenModal }) {
-  return (
-    <div className="order-cart-full">
-      <h3>Your Cart ({cart.length})</h3>
-      <ul className="orderList">
-        {cart.map((item) => (
-          <li key={item.name}>
-            <div className="dessert-cart">
-              <h5>{item.name}</h5>
-              <div className="dessert-info">
-                <p>{item.quantity}x</p>
-                <span className="originalPrice">@{(item.price).toFixed(2)}</span>
-                <span className="perPrice">${(item.price * item.quantity).toFixed(2)}</span>
-              </div>
-            </div>
-            <div className="deleteBtn">
-              <img onClick={() => onDeleteClick(item.name)} src="/img/remove-button.svg" alt="Carbon Tree Image" />
-            </div>
-          </li>
-        ))}
-      </ul>
-      <div className="order-total-price">
-        <h4>Order Total</h4>
-        <p>${totalPrice}</p>
-      </div>
-      <div className="carbon-info-box">
-        <img src="/img/carbon-tree.svg" alt="Carbon Tree Image" />
-        <p>
-          This is a <span>carbon-neutral</span> delivery
-        </p>
-      </div>
-      <div className="confirm-order">
-        <button onClick={onOpenModal} className="confirmBtn">Confirm Order</button>
-      </div>
-    </div>
-  );
-}
-
-function ModalPage({ cart, totalPrice, onCloseModal }) {
-  return (
-    <>
-      <div className="modal-overlay">
-        <div className="modal-content">
-          <div className="modal-header">
-            <img src="/img/check-icon-modal-page.svg" alt="Check Icon" />
-            <h2>Order Confirmed</h2>
-            <p>We hope you enjoy your food!</p>
-          </div>
-          <div className="modal-info">
-            <ul className="modal-dessert-list">
-              {cart.map((item) => (
-                <li className="modal-li" key={item.name}>
-                  <div className="modal-dessert-cart">
-                    <img src={item.img} alt={item.name} />
-                    <div className="dessert-cart-info">
-                      <h5>{item.name}</h5>
-                      <div className="dessert-info">
-                        <p>{item.quantity}x</p>
-                        <span className="originalPrice">@{(item.price).toFixed(2)}</span></div>
-                    </div>
-                  </div>
-                  <div className="modalPerPrice">
-                    <span>${(item.price * item.quantity).toFixed(2)}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <div className="order-total-price">
-              <h4>Order Total</h4>
-              <p>${totalPrice}</p>
-            </div>
-          </div>
-          <div className="new-order">
-            <button onClick={onCloseModal} className="newOrderBtn">Start New Order</button>
-          </div>
-        </div>
-      </div>
-    </>
-  )
 }
 
 export default App;
