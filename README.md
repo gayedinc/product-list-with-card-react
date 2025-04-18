@@ -24,7 +24,7 @@ Users can add dessert items to their cart, adjust quantities, and confirm their 
 - The total price of all items in the cart is **automatically calculated**.
 - Both the item count and the total price update in real-time as the user interacts with the cart.
 
-![image](https://github.com/user-attachments/assets/367764be-9014-4f33-93c4-5dd5beee2a76)
+![image](https://github.com/user-attachments/assets/624e9589-f041-49b5-ba4f-9c1366822e35)
 
 ### ♻️ Item Removal & Clear All
 - Users can remove items individually or use the “Clear All” button to empty the entire cart.
