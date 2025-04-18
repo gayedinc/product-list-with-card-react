@@ -1,77 +1,79 @@
 # 🍰 Product List with Card - React
 
-> Tatlı ürünlerini sepete ekle, miktarını artır/azalt, siparişini onayla. Mobil uyumlu ve kullanıcı dostu bir sipariş sepeti uygulaması.
+> Add desserts to your cart, increase/decrease quantities, confirm your order. A mobile-friendly and user-centric shopping cart application.
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3)
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5)
 
-## 🔍 Proje Özeti
+## 🔍 Project Overview
 
-Bu projeyi daha önce Vanilla JavaScript ile geliştirmiştim ancak bu sürümde React kullanarak uygulamayı daha **modüler**, **dinamik** ve **kullanıcı odaklı** hale getirdim.  
-Kullanıcılar tatlı ürünlerini sepetlerine ekleyebilir, miktarlarını ayarlayabilir ve siparişlerini onaylayarak yeni siparişler başlatabilir.
+I previously developed this project using Vanilla JavaScript, but in this version, I rebuilt it with React to make it more **modular**, **dynamic**, and **user-focused**.  
+Users can add dessert items to their cart, adjust quantities, and confirm their orders to start a new shopping session.
 
 ![image](https://github.com/user-attachments/assets/a582c5be-0c96-48a4-8d94-c3e8f92c3016)
 
-## 🧩 Uygulama Özellikleri
+## 🧩 Features
 
-### 🛒 Sepete Ürün Ekleme & Miktar Yönetimi
-- Aynı ürün tekrar eklendiğinde miktar artırılır.
-- Miktar sıfıra düşerse ürün otomatik olarak sepetten kaldırılır.
+### 🛒 Add to Cart & Quantity Management
+- When the same item is added again, its quantity is automatically increased.
+- If the quantity is reduced to zero, the item is automatically removed from the cart.
 
-### 💵 Toplam Fiyat ve Ürün Sayısı
-- Sepetteki tüm ürünlerin fiyatları **otomatik olarak hesaplanır**.
-- Toplam tutar ve ürün sayısı gerçek zamanlı olarak güncellenir.
+### 💵 Dynamic Total Price & Item Count
+- The total price of all items in the cart is **automatically calculated**.
+- Both the item count and the total price update in real-time as the user interacts with the cart.
 
 ![image](https://github.com/user-attachments/assets/367764be-9014-4f33-93c4-5dd5beee2a76)
 
-### ♻️ Ürün Silme & Clear All
-- Tek tek ürün çıkarabilir veya “Clear All” butonuyla sepeti tamamen temizleyebilirsiniz.
-- Temizleme işlemiyle birlikte sepet sıfırlanır, kullanıcı bilgilendirilir.
+### ♻️ Item Removal & Clear All
+- Users can remove items individually or use the “Clear All” button to empty the entire cart.
+- Upon clearing, the cart resets and the user is notified.
 
-### ✅ Sipariş Onayı & Yeni Sipariş
-- Sipariş onaylandığında modal pencere görünür:  
+### ✅ Order Confirmation & New Order Flow
+- When the order is confirmed, a modal window is displayed:  
   “Order Confirmed – We hope you enjoy your food!”  
-- “Start New Order” butonuyla sepet sıfırlanır, yeni sipariş başlatılır.
+- Clicking the “Start New Order” button resets the cart and begins a new session.
 
 ![image](https://github.com/user-attachments/assets/2918479a-1f21-4aa6-95b6-de0cd28b000e)
 
-## 🖼️ Tasarım ve Deneyim
+## 🖼️ Design & User Experience
 
-- **Mobil öncelikli (mobile-first)** yaklaşımla geliştirildi.
-- Hem mobil hem masaüstünde kusursuz görünüm.
-- Hover animasyonları, modal geçişleri ve harf harf açılan başlık animasyonu ile kullanıcı deneyimi artırıldı.
+- Built with a **mobile-first** approach.
+- Fully responsive across both mobile and desktop devices.
+- Hover animations, modal transitions, and per-letter animated titles were added to enhance user experience.
 
-## 🌐 Canlı Demo
-Uygulamayı canlı olarak görüntülemek için:
+## 🌐 Live Demo
+
+You can view the live application here:
 
 🔗 https://product-list-with-card.vercel.app
 
-## 🧠 Öğrendiklerim
-- React’te state yönetimi (useState)
-- Props ile component iletişimi
-- Liste üzerinden map ile dinamik render
-- CSS animasyonlar (fade-in, scale-in-out, underline hover vs.)
-- React içinde modal, toast, ve responsive layout uygulamaları
+## 🧠 What I Learned
 
-## ⚙️ Proje Yapısı
+- State management with React (`useState`)
+- Component communication via props
+- Rendering lists dynamically using `map`
+- Applying CSS animations (fade-in, scale-in-out, underline hover effects)
+- Implementing modals, toast notifications, and responsive layout techniques in React
+
+## ⚙️ Project Structure
 
 ```bash
 📦 public
- ┗ 📂 img                   # Projede kullanılan tüm görseller
+ ┗ 📂 img                   # All images used in the project
 
 📦 src
  ┣ 📂 assets
  ┃ ┗ 📂 css
- ┃   ┣ 📄 main.css          # Uygulama genel stil dosyası
- ┃   ┗ 📄 reset.css         # Varsayılan tarayıcı stillerini sıfırlayan dosya
+ ┃   ┣ 📄 main.css          # Global stylesheet
+ ┃   ┗ 📄 reset.css         # Resets default browser styles
  ┣ 📂 components
- ┃ ┣ 📄 Basket.jsx          # Sepet bileşeni
- ┃ ┣ 📄 ModalPage.jsx       # Sipariş onay modalı
- ┃ ┗ 📄 Products.jsx        # Ürünlerin listelendiği bileşen
+ ┃ ┣ 📄 Basket.jsx          # Shopping cart component
+ ┃ ┣ 📄 ModalPage.jsx       # Order confirmation modal
+ ┃ ┗ 📄 Products.jsx        # Component displaying product list
  ┣ 📂 data
- ┃ ┗ 📄 product.jsx         # Ürün verilerinin tutulduğu dosya
- ┣ 📄 App.jsx               # Ana uygulama bileşeni
- ┣ 📄 main.jsx              # React uygulamasının giriş noktası
-┗ 📄 index.html             # Uygulama HTML şablonu
+ ┃ ┗ 📄 product.jsx         # Contains product data
+ ┣ 📄 App.jsx               # Main application component
+ ┣ 📄 main.jsx              # Entry point for React rendering
+┗ 📄 index.html             # Application HTML template
