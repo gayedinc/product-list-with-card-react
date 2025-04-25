@@ -1,4 +1,4 @@
-# 🍰 Product List with Card - React
+# Product List with Card - React
 
 > Add desserts to your cart, increase/decrease quantities, confirm your order. A mobile-friendly and user-centric shopping cart application.
 
@@ -7,49 +7,49 @@
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3)
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5)
 
-## 🔍 Project Overview
+## Project Overview
 
 I previously developed this project using Vanilla JavaScript, but in this version, I rebuilt it with React to make it more **modular**, **dynamic**, and **user-focused**.  
 Users can add dessert items to their cart, adjust quantities, and confirm their orders to start a new shopping session.
 
 ![image](https://github.com/user-attachments/assets/a582c5be-0c96-48a4-8d94-c3e8f92c3016)
 
-## 🧩 Features
+## Features
 
-### 🛒 Add to Cart & Quantity Management
+### Add to Cart & Quantity Management
 - When the same item is added again, its quantity is automatically increased.
 - If the quantity is reduced to zero, the item is automatically removed from the cart.
 
-### 💵 Dynamic Total Price & Item Count
+### Dynamic Total Price & Item Count
 - The total price of all items in the cart is **automatically calculated**.
 - Both the item count and the total price update in real-time as the user interacts with the cart.
 
 ![image](https://github.com/user-attachments/assets/624e9589-f041-49b5-ba4f-9c1366822e35)
 
-### ♻️ Item Removal & Clear All
+### Item Removal & Clear All
 - Users can remove items individually or use the “Clear All” button to empty the entire cart.
 - Upon clearing, the cart resets and the user is notified.
 
-### ✅ Order Confirmation & New Order Flow
+### Order Confirmation & New Order Flow
 - When the order is confirmed, a modal window is displayed:  
   “Order Confirmed – We hope you enjoy your food!”  
 - Clicking the “Start New Order” button resets the cart and begins a new session.
 
 ![image](https://github.com/user-attachments/assets/2918479a-1f21-4aa6-95b6-de0cd28b000e)
 
-## 🖼️ Design & User Experience
+## Design & User Experience
 
 - Built with a **mobile-first** approach.
 - Fully responsive across both mobile and desktop devices.
 - Hover animations, modal transitions, and per-letter animated titles were added to enhance user experience.
 
-## 🌐 Live Demo
+## Live Demo
 
 You can view the live application here:
 
-🔗 https://product-list-with-card.vercel.app
+https://product-list-with-card.vercel.app
 
-## 🧠 What I Learned
+## What I Learned
 
 - State management with React (`useState`)
 - Component communication via props
@@ -57,23 +57,66 @@ You can view the live application here:
 - Applying CSS animations (fade-in, scale-in-out, underline hover effects)
 - Implementing modals, toast notifications, and responsive layout techniques in React
 
-## ⚙️ Project Structure
+## Installation & Running Locally
+
+To run this project on your local machine, follow the steps below:
+
+### 1. Clone the Repository
 
 ```bash
-📦 public
- ┗ 📂 img                   # All images used in the project
+git clone https://github.com/your-username/product-list-with-card-react.git
+```
 
-📦 src
- ┣ 📂 assets
- ┃ ┗ 📂 css
- ┃   ┣ 📄 main.css          # Global stylesheet
- ┃   ┗ 📄 reset.css         # Resets default browser styles
- ┣ 📂 components
- ┃ ┣ 📄 Basket.jsx          # Shopping cart component
- ┃ ┣ 📄 ModalPage.jsx       # Order confirmation modal
- ┃ ┗ 📄 Products.jsx        # Component displaying product list
- ┣ 📂 data
- ┃ ┗ 📄 product.jsx         # Contains product data
- ┣ 📄 App.jsx               # Main application component
- ┣ 📄 main.jsx              # Entry point for React rendering
-┗ 📄 index.html             # Application HTML template
+If you don’t have Git installed, you can download it from [https://git-scm.com](https://git-scm.com).
+
+### 2. Navigate into the Project Directory
+
+```bash
+cd product-list-with-card-react
+```
+
+### 3. Install Dependencies
+
+If Node.js and npm (or yarn) are not installed on your system, download them from [https://nodejs.org](https://nodejs.org).
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 4. Start the Development Server
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The application will typically run at [http://localhost:5173](http://localhost:5173).
+
+### 5. Open in Browser
+
+Visit the local URL in your browser to start using the app.
+
+
+## Project Structure
+
+```bash
+ public
+ ┗  img                   # All images used in the project
+
+ src
+ ┣  assets
+ ┃ ┗  css
+ ┃   ┣  main.css          # Global stylesheet
+ ┃   ┗  reset.css         # Resets default browser styles
+ ┣  components
+ ┃ ┣  Basket.jsx          # Shopping cart component
+ ┃ ┣  ModalPage.jsx       # Order confirmation modal
+ ┃ ┗  Products.jsx        # Component displaying product list
+ ┣  data
+ ┃ ┗  product.jsx         # Contains product data
+ ┣  App.jsx               # Main application component
+ ┣  main.jsx              # Entry point for React rendering
+┗  index.html             # Application HTML template
